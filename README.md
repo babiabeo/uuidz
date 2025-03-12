@@ -19,7 +19,7 @@ const uuidz = b.dependency("uuidz", .{
     .optimize = optimize,
 });
 
-exe.root_module.addImport("uuidz", pg.module("uuidz"));
+exe.root_module.addImport("uuidz", uuidz.module("uuidz"));
 // ...
 ```
 
