@@ -65,6 +65,13 @@ formats are supported:
 - `urn:uuid:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (URN form)
 - `{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}` (Microsoft's curly braced style)
 
+```zig
+_ = uuidz.UUID.parse("b953498c-fd02-449d-9dc6-c93e5e7985b2");          // valid
+_ = uuidz.UUID.parse("urn:uuid:b953498c-fd02-449d-9dc6-c93e5e7985b2"); // valid
+_ = uuidz.UUID.parse("{b953498c-fd02-449d-9dc6-c93e5e7985b2}");        // valid
+_ = uuidz.UUID.parse("b953498cfd02449d9dc6c93e5e7985b2");              // error: Unsupported form
+```
+
 ## License
 
 [MIT](./LICENSE)
