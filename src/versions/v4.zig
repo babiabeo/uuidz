@@ -18,8 +18,11 @@ pub fn new2(rand: std.Random) UUID {
 }
 
 test "v4.new" {
-    const uuid = new();
+    var i: u8 = 0;
+    while (i < 100) : (i += 1) {
+        const uuid = new();
 
-    try std.testing.expectEqual(uuid.version(), UUID.Version.version_4);
-    try std.testing.expectEqual(uuid.variant(), UUID.Variant.standard);
+        try std.testing.expectEqual(uuid.version(), UUID.Version.version_4);
+        try std.testing.expectEqual(uuid.variant(), UUID.Variant.standard);
+    }
 }

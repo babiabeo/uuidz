@@ -1,16 +1,6 @@
 //! Represents an Universally Unique IDentifier (UUID), also known as Globally Unique IDentifier (GUID).
 //! A UUID is 128 bits long (16 bytes) and requires no central registration process.
 //!
-//! ## UUID Format
-//!
-//! Currently, this package only supports these formats:
-//! - s: output uuid in standard form `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (all letters are lowercase).
-//! - S: output uuid in standard form `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (all letters are uppercase).
-//! - b: output uuid in form `{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}` (a.k.a Microsoft style).
-//! - u: output uuid in URN form `urn:uuid:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
-//! - x: same as s.
-//! - X: same as S.
-//!
 //! Based on [RFC 9562](https://www.rfc-editor.org/rfc/rfc9562.html) (obsoletes RFC 4122).
 
 const std = @import("std");
@@ -80,6 +70,14 @@ pub fn variant(self: *const UUID) Variant {
     }
 }
 
+/// Encodes an UUID into one of these formats:
+/// - s: output uuid in standard form `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (all letters are lowercase).
+/// - S: output uuid in standard form `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (all letters are uppercase).
+/// - b: output uuid in form `{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}` (a.k.a Microsoft style).
+/// - u: output uuid in URN form `urn:uuid:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+/// - d: output uuid as an u128 integer.
+/// - x: same as s.
+/// - X: same as S.
 pub fn format(
     self: *const UUID,
     comptime fmt: []const u8,
